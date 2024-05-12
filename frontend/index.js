@@ -12,7 +12,8 @@ const App = function () {
         // Make a GET request to your Node.js API
         axios.get(`${process.env.API_URL}data`)
             .then(response => {
-                setData(response.data);
+                console.log(response)
+                setData(response.data.data);
                 setLoading(false);
             })
             .catch(error => {
