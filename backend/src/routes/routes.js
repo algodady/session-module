@@ -8,7 +8,7 @@ const router = express.Router();
 router.get("/data", getData);
 
 // session
-router.get("/register", registration);
+router.post("/register", registration);
 router.get("/login",login)
 router.get("/logout",logout)
 router.get("/protected",authorization,authcheck)

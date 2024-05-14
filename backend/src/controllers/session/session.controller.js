@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken'
+import { User } from '../../models/user.model.js';
 
 export const getData = async (req, res) => {
     const result = [{
@@ -37,6 +38,12 @@ export const getData = async (req, res) => {
 export const registration = async (req, res) => {
     try {
         console.log(req.body);
+        const {name , email} = req.body
+
+        await User.create({
+            name,
+            email
+        })
         res.status(200).json({ message: "Successfully registered !!" })
     } catch (error) {
         return res.status(500).json({ message: "Something went wrong !!" })
