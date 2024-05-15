@@ -49,6 +49,15 @@ export const registration = async (req, res) => {
         return res.status(500).json({ message: "Something went wrong !!" })
     }
 }
+export const allUsers = async (req, res) => {
+    try {
+
+        const data = await User.find({})
+        res.status(200).json({ message: "Successfully fetch !!" ,data:data})
+    } catch (error) {
+        return res.status(500).json({ message: "Something went wrong !!" })
+    }
+}
 
 export const login = async (req, res) => {
     try {
